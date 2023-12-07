@@ -1,0 +1,48 @@
+<div class="p-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-body">
+        <input class="p-1" type="text" [(ngModel)]="keyword">
+        <button (click)="searchEquipments()" class="btn btn-outline-success ms-1">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>description</th>
+          <th>serial_number</th>
+          <th>model_id</th>
+          <th>color</th>
+          <th>fuel</th>
+          <th>Checked</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let equipment of equipments">
+          <td>{{equipment.id}}</td>
+          <td>{{equipment.name}}</td>
+          <td>{{equipment.description}}</td>
+          <td>{{equipment.serialNumber}}</td>
+          <td>{{equipment.model}}</td>
+          <td>{{equipment.color}}</td>
+          <td>{{equipment.fuel}}</td>
+          <td>
+            <button (click)="handleCheckEquipment(equipment)" class="btn btn-outline-success">
+              <i [class]="equipment.checked ? 'bi bi-check' : 'bi bi-circle'"></i>
+
+            </button>
+          </td>
+          <td>
+            <button (click)="handleDelete(equipment)" class="btn btn-outline-danger">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

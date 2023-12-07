@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-project';
+  actions : Array<any> = [
+    {title : "Home", route : "/home", icon : "house"},
+    {title : "Equipments", route : "/equipments", icon : "arrow-down-up"},
+    {title : "New Equipment", route : "/newEquipment", icon : "plus-circle-dotted"},
+  ];
+
+  currentAction : any;
+
+  setCurrentAction (action : any) {
+    this.currentAction = action;
+  }
 }
